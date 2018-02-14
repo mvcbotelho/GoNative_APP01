@@ -6,6 +6,7 @@ import {
   View,
   Button
 } from 'react-native';
+import './config/ReactotronConfig'
 import Todo from './components/Todo'
 
 export default class App extends Component {
@@ -24,6 +25,10 @@ export default class App extends Component {
         { id: Math.random(), text: 'Novo todo' }
       ]
     });
+  }
+
+  componentDidMount(){
+    console.tron.log('Teste')
   }
 
   render() {
