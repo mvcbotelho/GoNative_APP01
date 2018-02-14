@@ -12,26 +12,30 @@ export default class App extends Component {
   state = {
     user: 'Marcus',
     todos: [
-         {id: 0, text: 'Fazr café' },
-         {id: 1, text: 'Estudar GoNative' },
+      { id: 0, text: 'Fazr café' },
+      { id: 1, text: 'Estudar GoNative' },
     ]
   };
 
   addTodo = () => {
-    this.setState({ 
+    this.setState({
       todos: [
         ...this.state.todos,
-        {id: Math.random(), text: 'Novo todo'}
-      ] 
+        { id: Math.random(), text: 'Novo todo' }
+      ]
     });
   }
 
   render() {
     return (
       <View style={styles.container}>
-      <Text>{ this.state.user }</Text>
-        { this.state.todos.map(todos => <Todo key={todos.id} title={todos.text} />) }
-        <Button title="Adiciona todo" onPress={this.addTodo}/>
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box}>
+          <Text style={styles.boxText}>OI</Text>
+        </View>
       </View>
     );
   }
@@ -40,8 +44,24 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    backgroundColor: '#333',
+    justifyContent: 'space-around',
+    alignContent: 'center'
+  },
+  box: {
+    width: 80,
+    height: 80,
+    margin: 10,
+    backgroundColor: '#f00',
+    transform: [
+      {
+        rotateZ: '20deg'
+      }
+    ]
+  },
+  boxText: {
+    color: '#fff'
   }
 });
