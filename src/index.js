@@ -1,21 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
-  Text,
   View,
-  Button
 } from 'react-native';
-import './config/ReactotronConfig'
-import Todo from './components/Todo'
+import 'config/ReactotronConfig';
+import 'config/DevToolsConfig';
+import Todo from 'components/Todo';
 
 export default class App extends Component {
   state = {
-    user: 'Marcus',
     todos: [
       { id: 0, text: 'Fazr café' },
       { id: 1, text: 'Estudar GoNative' },
-    ]
+    ],
   };
 
   addTodo = () => {
@@ -27,20 +24,12 @@ export default class App extends Component {
     });
   }
 
-  componentDidMount(){
-    console.tron.log('Teste')
-  }
-
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box}>
-          <Text style={styles.boxText}>OI</Text>
-        </View>
+        <Todo title="Fazer Café" />
+        <Todo title="Ligar o computador" />
+        <Todo title="Estudar GoNative" />
       </View>
     );
   }
@@ -49,24 +38,8 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    backgroundColor: '#333',
-    justifyContent: 'space-around',
-    alignContent: 'center'
+    backgroundColor: '#ccc',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  box: {
-    width: 80,
-    height: 80,
-    margin: 10,
-    backgroundColor: '#f00',
-    transform: [
-      {
-        rotateZ: '20deg'
-      }
-    ]
-  },
-  boxText: {
-    color: '#fff'
-  }
 });
